@@ -2,13 +2,12 @@ class Category:
     """ Класс для создания категорий"""
     name: str
     description: str
-    products: list # д.б. список объектов класса Product
+    products: list  # д.б. список объектов класса Product
 
     category_count = 0
     product_count = 0
 
-
-    def __init__(self, name, description, products ):
+    def __init__(self, name, description, products):
         self.name = name
         self.description = description
         self.products = products

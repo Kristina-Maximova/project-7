@@ -13,7 +13,7 @@ def test_product_1():
         quantity=3
     )
 
-
+@pytest.fixture
 def test_product_2():
     return Product(
         name="некий другой товар",
