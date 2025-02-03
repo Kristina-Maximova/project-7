@@ -1,5 +1,6 @@
-from unittest.mock import patch, mock_open
-from src.utils import read_json, create_object_from_data
+from unittest.mock import mock_open, patch
+
+from src.utils import create_object_from_data, read_json
 
 
 @patch("os.path.abspath", return_value="fake_path")
@@ -21,4 +22,3 @@ def test_create_object_from_data():
     assert result[0].name == 'test'
     assert result[0].description == 'fake_fake'
     assert len(result[0].products) == 1
-

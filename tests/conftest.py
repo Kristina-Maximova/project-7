@@ -1,7 +1,7 @@
 import pytest
 
-from src.products import Product
 from src.categories import Category
+from src.products import Product
 
 
 @pytest.fixture
@@ -13,6 +13,7 @@ def test_product_1():
         quantity=3
     )
 
+
 @pytest.fixture
 def test_product_2():
     return Product(
@@ -20,6 +21,16 @@ def test_product_2():
         description="другой товар озадачит вас",
         price=1.12,
         quantity=5
+    )
+
+
+@pytest.fixture
+def test_product_3():
+    return Product(
+        name="опять другой товар",
+        description="опять товар не задержит вас",
+        price=3.14,
+        quantity=1
     )
 
 

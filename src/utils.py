@@ -1,7 +1,8 @@
 import json
 import os
-from src.products import Product
+
 from src.categories import Category
+from src.products import Product
 
 
 def read_json(path: str) -> list:
@@ -22,9 +23,9 @@ def create_object_from_data(data: list) -> list:
     for category in data:
         products = []
         for product in category["products"]:
-            products.append(Product( ** product))
+            products.append(Product(**product))
         category["products"] = products
-        categories.append(Category( ** category))
+        categories.append(Category(**category))
     return categories
 
 
