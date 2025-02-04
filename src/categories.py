@@ -30,6 +30,4 @@ class Category:
             product_line += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return product_line
 
-
 # if __name__ == "__main__":
-

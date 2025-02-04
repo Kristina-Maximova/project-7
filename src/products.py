@@ -33,7 +33,7 @@ class Product:
     @classmethod
     def new_product(cls, new_product: dict, products: list = None):
         """ Класс-метод для добавления нового продукта"""
-        if products != None:
+        if products is not None:
             for product in products:
                 if new_product["name"] == product.name:
                     product.quantity += new_product["quantity"]
