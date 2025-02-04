@@ -35,6 +35,18 @@ def test_product_3():
 
 
 @pytest.fixture
+def product_in_dict_1():
+    return {"name": "Кот", "description": "Кот в мешке", "price": 4.0,
+            "quantity": 1}
+
+
+@pytest.fixture
+def product_in_dict_2():
+    return {"name": "Мышь", "description": "Мышь в мешке", "price": 2.0,
+            "quantity": 1}
+
+
+@pytest.fixture
 def test_category_1():
     return Category(
         name="некая категория",
@@ -69,3 +81,18 @@ def test_category_2():
                           8)]
 
     )
+
+
+@pytest.fixture
+def test_category_3():
+    return Category(
+        name="некая категория",
+        description="Это расширит ваши возможности",
+        products=[Product("некий товар",
+                          "некий товар удивит вас",
+                          9.11,
+                          3),
+                  Product("некий другой товар",
+                          "другой товар озадачит вас",
+                          1.12,
+                          5)])
