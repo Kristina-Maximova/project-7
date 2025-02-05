@@ -21,4 +21,4 @@ def test_create_object_from_data():
     result = create_object_from_data(test_data)
     assert result[0].name == 'test'
     assert result[0].description == 'fake_fake'
-    assert len(result[0].products) == 1
+    assert result[0].products.rstrip() == 'test_dos, 1.1 руб. Остаток: 5 шт.'
