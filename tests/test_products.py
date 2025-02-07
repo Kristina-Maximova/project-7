@@ -1,4 +1,5 @@
 from unittest.mock import patch
+
 from src.products import Product
 
 
@@ -53,3 +54,11 @@ def test_new_product_check_in_list(product_in_dict_1, product_in_dict_2):
     assert product_2.price == 2.0
     assert product_2.description == "Мышь в мешке"
     assert product_2.quantity == 1
+
+
+def test_product_str(test_product_1):
+    assert str(test_product_1) == "некий товар, 9.11 руб. Остаток: 3 шт."
+
+
+def test_product_add(test_product_2, test_product_3):
+    assert test_product_2 + test_product_3 == 8.74

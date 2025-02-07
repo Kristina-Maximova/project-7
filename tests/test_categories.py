@@ -23,3 +23,11 @@ def test_products(test_category_1):
     assert test_category_1.products == (
         'некий товар, 9.11 руб. Остаток: 3 шт.\n'
         'некий другой товар, 1.12 руб. Остаток: 5 шт.\n')
+
+
+def test_category_str(test_category_1):
+    assert str(test_category_1) == "некая категория, количество продуктов: 2 шт."
+
+
+def test_get_product_list(test_category_2):
+    assert len(test_category_2.get_product_list) == 3
