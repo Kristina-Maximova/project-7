@@ -26,6 +26,7 @@ def test_products(test_category_1):
 
 
 def test_category_str(test_category_1):
+    test_category_1.product_count = 0
     assert str(test_category_1) == "некая категория, количество продуктов: 2 шт."
 
 

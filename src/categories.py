@@ -20,7 +20,7 @@ class Category:
 
     def __str__(self):
         """ Задает строковое отображение продукта"""
-        return f"{self.name}, количество продуктов: {Category.product_count} шт."
+        return f"{self.name}, количество продуктов: {len(self.get_product_list)} шт."
 
     def add_product(self, product: Product) -> None:
         """ Добавление объекта класса Product в приватный список продуктов"""
