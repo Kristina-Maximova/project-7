@@ -17,6 +17,10 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+
+    def __str__(self):
+        return f"{self.name}, количество продуктов: {Category.product_count} шт."
+
     def add_product(self, product: Product) -> None:
         """ Добавление объекта класса Product в приватный список продуктов"""
         self.__products.append(product)
@@ -27,7 +31,7 @@ class Category:
         """Геттер для получения строки с продуктами"""
         product_line = ""
         for product in self.__products:
-            product_line += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_line += f"{str(product)}\n"
         return product_line
 
 # if __name__ == "__main__":
