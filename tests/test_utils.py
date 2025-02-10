@@ -16,6 +16,7 @@ def test_read_json(mock_open, mock_os):
 
 
 def test_create_object_from_data():
+    """ Проверка создания объектов классов Product и Category из списка словарей """
     test_data = [{'name': 'test', 'description': 'fake_fake',
                   'products': [{'name': 'test_dos', 'description': 'test_uno', 'price': 1.1, 'quantity': 5}]}]
     result = create_object_from_data(test_data)

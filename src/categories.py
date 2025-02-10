@@ -25,7 +25,7 @@ class Category:
     def add_product(self, product: Product) -> None:
         """ Добавление объекта класса Product в приватный список продуктов"""
         if not isinstance(product, Product):
-            raise TypeError("Добавлять можно только объекты классов Product и дочерних от него ")
+            raise TypeError("Добавлять можно только объекты классов Product и дочерних от него.")
         self.__products.append(product)
         Category.product_count += 1
 
