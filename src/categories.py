@@ -11,11 +11,16 @@ class Category:
     product_count = 0
 
     def __init__(self, name, description, products):
+        """ Конструктор класса категорий"""
         self.name = name
         self.description = description
         self.__products = products
         Category.category_count += 1
         Category.product_count += len(products)
+
+    def __str__(self):
+        """ Задает строковое отображение продукта"""
+        return f"{self.name}, количество продуктов: {len(self.get_product_list)} шт."
 
     def add_product(self, product: Product) -> None:
         """ Добавление объекта класса Product в приватный список продуктов"""
@@ -27,7 +32,15 @@ class Category:
         """Геттер для получения строки с продуктами"""
         product_line = ""
         for product in self.__products:
-            product_line += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_line += f"{str(product)}\n"
         return product_line
+
+    @property
+    def get_product_list(self):
+        """ Геттер для получения списка продуктов"""
+        my_list = []
+        for product in self.__products:
+            my_list.append(product)
+        return my_list
 
 # if __name__ == "__main__":

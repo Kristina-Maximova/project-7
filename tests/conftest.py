@@ -2,6 +2,7 @@ import pytest
 
 from src.categories import Category
 from src.products import Product
+from src.products_iterator import ProductsIterator
 
 
 @pytest.fixture
@@ -96,3 +97,8 @@ def test_category_3():
                           "другой товар озадачит вас",
                           1.12,
                           5)])
+
+
+@pytest.fixture
+def test_product_iterator(test_category_2):
+    return ProductsIterator(test_category_2)

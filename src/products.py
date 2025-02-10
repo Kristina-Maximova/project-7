@@ -12,6 +12,14 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """ Настройка строкового отображения,
+        применяется в print() и str()"""
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        return (self.__price * self.quantity) + (other.__price * other.quantity)
+
     @property
     def price(self) -> float:
         """ Геттер для получения прайса"""
@@ -54,7 +62,7 @@ class Product:
                        new_product["quantity"])
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover.
     new_product = Product.new_product(
         {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
          "quantity": 5})

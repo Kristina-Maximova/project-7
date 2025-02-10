@@ -29,7 +29,7 @@ def create_object_from_data(data: list) -> list:
     return categories
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover.
     my_data = read_json("../data/products.json")
     # my_categories = create_object_from_data(my_data)
 
