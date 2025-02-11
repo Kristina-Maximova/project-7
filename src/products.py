@@ -23,7 +23,6 @@ class Product:
         else:
             raise TypeError("Складывать между собой можно только продукты одного класса")
 
-
     @property
     def price(self) -> float:
         """ Геттер для получения прайса"""

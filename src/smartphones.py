@@ -4,10 +4,6 @@ from src.products import Product
 class Smartphone(Product):
     """ Класс смартфонов как продукта"""
     name: str
-    efficiency: str
-    model: str
-    memory: str
-    color: str
     description: str
     price: float
     quantity: int

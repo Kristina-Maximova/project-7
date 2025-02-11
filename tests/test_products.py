@@ -1,7 +1,9 @@
 from unittest.mock import patch
 
-from src.products import Product
 import pytest
+
+from src.products import Product
+
 
 def test_product_init(test_product_1):
     """ Проверка работы конструктора класса продукт"""
@@ -72,7 +74,9 @@ def test_product_add(test_product_2, test_product_3):
     """ Проверка магического метода сложения в классе продукт"""
     assert test_product_2 + test_product_3 == 8.74
 
+
 def test_product_add_wrong(test_smartphone1, test_lawn_grass_1):
     """ проверка на вызов ошибки при сложении продуктов разных дочерних подклассов"""
-    with pytest.raises(TypeError):
-        a = test_smartphone1 + test_lawn_grass_1
+    with pytest.raises(TypeError) as e:
+        str(test_smartphone1 + test_lawn_grass_1)
+        assert str(e.value) == "Складывать между собой можно только продукты одного класса"

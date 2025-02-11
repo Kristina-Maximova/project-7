@@ -1,5 +1,6 @@
 from src.products import Product
 
+
 class LawnGrass(Product):
     """ Класс газонной травы как продукта"""
     name: str
@@ -16,4 +17,3 @@ class LawnGrass(Product):
         self.country = country
         self.germination_period = germination_period
         self.color = color
-

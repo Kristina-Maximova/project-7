@@ -1,10 +1,10 @@
 import pytest
 
 from src.categories import Category
+from src.lawn_grass import LawnGrass
 from src.products import Product
 from src.products_iterator import ProductsIterator
 from src.smartphones import Smartphone
-from src.lawn_grass import LawnGrass
 
 
 @pytest.fixture
