@@ -25,12 +25,6 @@ class ProductsIterator:
         else:
             raise StopIteration
 
-    # def get_product_list(self):
-    #     my_list = []
-    #     for product in self.__products:
-    #         my_list.append(product)
-    #     return my_list
-
 
 if __name__ == "__main__":  # pragma: no cover.
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
