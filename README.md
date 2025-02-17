@@ -12,10 +12,12 @@
 ## Примеры использования
 
   В проекте используются классы:
-  > *Product*   
-  >>Smartphone
-  > 
-> >LawnGrass
+>BaseProduct, 
+>PrintMixin
+> 
+  >> *Product*   
+  >>>Smartphone
+> >>LawnGrass
   
 > *Сategory*.
 
