@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """ Класс для создания продукта"""
     name: str
     description: str
@@ -11,6 +15,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         """ Настройка строкового отображения,
@@ -51,18 +56,22 @@ class Product:
                     if product.price < new_product["price"]:
                         product.price = new_product["price"]
                 else:
-                    cls_product = cls(new_product["name"],
-                                      new_product["description"],
-                                      new_product["price"],
-                                      new_product["quantity"])
+                    # cls_product = cls(new_product["name"],
+                    #                   new_product["description"],
+                    #                   new_product["price"],
+                    #                   new_product["quantity"])
+                    cls_product =cls(**new_product)  # так метод будет корректно работать
+                    # при разном количестве аргументов у дочерних классов
+
                     products.append(cls_product)
 
                     return cls_product
         else:
-            return cls(new_product["name"],
-                       new_product["description"],
-                       new_product["price"],
-                       new_product["quantity"])
+            return cls(**new_product)
+            # return cls(new_product["name"],
+            #            new_product["description"],
+            #            new_product["price"],
+            #            new_product["quantity"])
 
 
 if __name__ == "__main__":  # pragma: no cover.
