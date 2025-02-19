@@ -1,7 +1,8 @@
 from src.products import Product
+from src.base_product import BaseCategory
 
 
-class Category:
+class Category(BaseCategory):
     """ Класс для создания категорий"""
     name: str
     description: str
@@ -45,7 +46,6 @@ class Category:
             my_list.append(product)
         return my_list
 
-
     def middle_price(self):
         try:
             return sum([product.quantity for product in self.__products]) / len(self.__products)
@@ -53,7 +53,7 @@ class Category:
             return 0
 
 
-if __name__ == "__main__":   # pragma: no cover.
+if __name__ == "__main__":  # pragma: no cover.
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
@@ -63,5 +63,5 @@ if __name__ == "__main__":   # pragma: no cover.
     print(category1.middle_price())
 
     category_none_products = Category("Телевизоры",
-    "Современный телевизор, который позволяет наслаждаться просмотром", [])
+                                      "Современный телевизор, который позволяет наслаждаться просмотром", [])
     print(category_none_products.middle_price())
