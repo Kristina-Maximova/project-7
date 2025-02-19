@@ -1,6 +1,6 @@
 from src.base_product import BaseCategory
-from src.products import Product
 from src.my_exception import ZeroQuantityException
+from src.products import Product
 
 
 class Order(BaseCategory):

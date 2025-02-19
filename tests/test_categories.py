@@ -50,7 +50,7 @@ def test_get_product_list(test_category_2):
 
 def test_middle_price(test_category_2):
     """ Проверка выполнения подсчёта средней цены товара в категории"""
-    assert test_category_2.middle_price() == 5.33
+    assert test_category_2.middle_price() == 5.66
 
 
 def test_middle_price_zero_products(test_zero_products_category):

@@ -2,10 +2,10 @@ import pytest
 
 from src.categories import Category
 from src.lawn_grass import LawnGrass
+from src.orders import Order
 from src.products import Product
 from src.products_iterator import ProductsIterator
 from src.smartphones import Smartphone
-from src.orders import Order
 
 
 @pytest.fixture
@@ -101,12 +101,13 @@ def test_category_3():
                           1.12,
                           5)])
 
+
 @pytest.fixture
 def test_zero_products_category():
     return Category(
         name="иная категория",
         description="Это вдохновит вас",
-        products = [])
+        products=[])
 
 
 @pytest.fixture

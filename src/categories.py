@@ -1,6 +1,6 @@
-from src.products import Product
 from src.base_product import BaseCategory
 from src.my_exception import ZeroQuantityException
+from src.products import Product
 
 
 class Category(BaseCategory):
@@ -18,7 +18,7 @@ class Category(BaseCategory):
         self.description = description
         self.__products = products
         Category.category_count += 1
-        Category.product_count += len(products)
+        Category.product_count += len(self.__products)
 
     def __str__(self):
         """ Задает строковое отображение продукта"""
@@ -58,7 +58,8 @@ class Category(BaseCategory):
 
     def middle_price(self):
         try:
-            return round(sum([product.quantity for product in self.__products]) / len(self.__products),2)
+            return round(sum([product.price * product.quantity for product in self.__products]) / sum(
+                [product.quantity for product in self.__products]), 2)
         except ZeroDivisionError:
             return 0
 
@@ -70,11 +71,12 @@ if __name__ == "__main__":  # pragma: no cover.
 
     category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
     print(category1.get_product_list[0])
+    print(category1.product_count)
     print(category1.middle_price())
 
-    category_none_products = Category("Телевизоры",
-                                      "Современный телевизор, который позволяет наслаждаться просмотром", [])
-    print(category_none_products.middle_price())
-    product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
-    category1.add_product(product4)
-    print(category1.products)
+    # category_none_products = Category("Телевизоры",
+    #                                   "Современный телевизор, который позволяет наслаждаться просмотром", [])
+    # print(category_none_products.middle_price())
+    # product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    # category1.add_product(product4)
+    # print(category1.products)

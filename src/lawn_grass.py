@@ -18,6 +18,7 @@ class LawnGrass(Product):
         self.germination_period = germination_period
         self.color = color
 
+
 if __name__ == "__main__":  # pragma: no cover
     data_for_new_lawn_grass = {
         'name': 'травушка',

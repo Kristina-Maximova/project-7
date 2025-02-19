@@ -59,15 +59,9 @@ class Product(BaseProduct, PrintMixin):
                     if product.price < new_product["price"]:
                         product.price = new_product["price"]
                 else:
-                    # cls_product = cls(new_product["name"],
-                    #                   new_product["description"],
-                    #                   new_product["price"],
-                    #                   new_product["quantity"])
-                    cls_product =cls(**new_product)  # так метод будет корректно работать
+                    cls_product = cls(**new_product)  # так метод будет корректно работать
                     # при разном количестве аргументов у дочерних классов
-
                     products.append(cls_product)
-
                     return cls_product
         else:
             return cls(**new_product)
