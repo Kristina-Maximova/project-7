@@ -1,5 +1,6 @@
 from src.products import Product
 from src.base_product import BaseCategory
+from src.my_exception import ZeroQuantityException
 
 
 class Category(BaseCategory):
@@ -27,8 +28,17 @@ class Category(BaseCategory):
         """ Добавление объекта класса Product в приватный список продуктов"""
         if not isinstance(product, Product):
             raise TypeError("Добавлять можно только объекты классов Product и дочерних от него.")
-        self.__products.append(product)
-        Category.product_count += 1
+        try:
+            if product.quantity == 0:
+                raise ZeroQuantityException("Количество добавляемого продукта не может быть нулевым")
+        except ZeroQuantityException as e:
+            print(str(e))
+        else:
+            self.__products.append(product)
+            Category.product_count += 1
+            print("Товар добавлен")
+        finally:
+            print("Обработка добавления товара завершена")
 
     @property
     def products(self) -> str:
@@ -48,7 +58,7 @@ class Category(BaseCategory):
 
     def middle_price(self):
         try:
-            return sum([product.quantity for product in self.__products]) / len(self.__products)
+            return round(sum([product.quantity for product in self.__products]) / len(self.__products),2)
         except ZeroDivisionError:
             return 0
 
@@ -59,9 +69,12 @@ if __name__ == "__main__":  # pragma: no cover.
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
     category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
-
+    print(category1.get_product_list[0])
     print(category1.middle_price())
 
     category_none_products = Category("Телевизоры",
                                       "Современный телевизор, который позволяет наслаждаться просмотром", [])
     print(category_none_products.middle_price())
+    product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    category1.add_product(product4)
+    print(category1.products)

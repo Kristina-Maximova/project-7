@@ -5,6 +5,7 @@ from src.lawn_grass import LawnGrass
 from src.products import Product
 from src.products_iterator import ProductsIterator
 from src.smartphones import Smartphone
+from src.orders import Order
 
 
 @pytest.fixture
@@ -100,6 +101,13 @@ def test_category_3():
                           1.12,
                           5)])
 
+@pytest.fixture
+def test_zero_products_category():
+    return Category(
+        name="иная категория",
+        description="Это вдохновит вас",
+        products = [])
+
 
 @pytest.fixture
 def test_product_iterator(test_category_2):
@@ -150,3 +158,16 @@ def test_lawn_grass_2():
                      "США",
                      "5 дней",
                      "Темно-зеленый")
+
+
+@pytest.fixture
+def test_order1():
+    return Order("Смартфоны",
+                 [Product("Samsung Galaxy S23 Ultra",
+                          "256GB, Серый цвет, 200MP камера",
+                          180000.0,
+                          2),
+                  Product("Iphone 15",
+                          "512GB, Gray space",
+                          210000.0,
+                          1)])

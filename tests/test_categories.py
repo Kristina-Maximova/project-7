@@ -46,3 +46,22 @@ def test_category_str(test_category_1):
 def test_get_product_list(test_category_2):
     """ Проверка на получение списка продуктов категории"""
     assert len(test_category_2.get_product_list) == 3
+
+
+def test_middle_price(test_category_2):
+    """ Проверка выполнения подсчёта средней цены товара в категории"""
+    assert test_category_2.middle_price() == 5.33
+
+
+def test_middle_price_zero_products(test_zero_products_category):
+    """ Проверка на получение средней ены при пустом списке продуктов"""
+    assert test_zero_products_category.middle_price() == 0
+
+
+def test_zero_quantity_add(capsys, test_smartphone1, test_category_1):
+    """ Обработка ошибки добавления продукта с нулевым количеством """
+    test_smartphone1.quantity = 0
+    test_category_1.add_product(test_smartphone1)
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-2] == "Количество добавляемого продукта не может быть нулевым"
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления товара завершена"
