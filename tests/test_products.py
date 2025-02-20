@@ -80,3 +80,13 @@ def test_product_add_wrong(test_smartphone1, test_lawn_grass_1):
     with pytest.raises(TypeError) as e:
         str(test_smartphone1 + test_lawn_grass_1)
         assert str(e.value) == "Складывать между собой можно только продукты одного класса"
+
+
+def test_zero_quantity_init():
+    """ Проверка на попытку cоздать продукт с нулевым количеством """
+    with pytest.raises(ValueError) as exc_info:
+        Product("Samsung Galaxy S23 Ultra",
+                "256GB, Серый цвет, 200MP камера",
+                180000.0,
+                0)
+        assert exc_info == "Товар с нулевым количеством не может быть добавлен"

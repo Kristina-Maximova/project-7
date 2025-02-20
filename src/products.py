@@ -14,7 +14,10 @@ class Product(BaseProduct, PrintMixin):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity > 0:
+            self.quantity = quantity
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):
@@ -56,15 +59,9 @@ class Product(BaseProduct, PrintMixin):
                     if product.price < new_product["price"]:
                         product.price = new_product["price"]
                 else:
-                    # cls_product = cls(new_product["name"],
-                    #                   new_product["description"],
-                    #                   new_product["price"],
-                    #                   new_product["quantity"])
-                    cls_product =cls(**new_product)  # так метод будет корректно работать
+                    cls_product = cls(**new_product)  # так метод будет корректно работать
                     # при разном количестве аргументов у дочерних классов
-
                     products.append(cls_product)
-
                     return cls_product
         else:
             return cls(**new_product)
